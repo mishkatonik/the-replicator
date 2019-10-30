@@ -1,0 +1,108 @@
+body {
+	
+	background-image: url("./images/soup-bottom-border.jpg");
+	background-color: #251b16;
+	background-repeat:repeat;
+	background-attachment:fixed bottom;
+	background-size: cover;
+	overflow:scroll;
+	line-height:2em;
+}
+
+
+
+h1.site-header {
+	font-family: 'Turret Road', cursive;
+	padding: 10px;
+	margin: 15px;
+	border: solid black 5px;
+	background: #251b16;
+}
+
+div.nav-sidebar {
+	padding: 20px;
+	height: 100%;
+	background: #251b16;
+	background: linear-gradient(0deg,  #9E2A2B 0%, #E09F3E 75%);
+	min-height: 100vh;
+}
+
+img.logo {
+	border: solid #000033;
+	background: #003049;
+	margin: 20px;
+}
+
+h6.tagline {
+	font-family: 'Major Mono Display', monospace;
+	font-size: 12pt;
+	padding: 10px;
+	margin: 5px;
+	border: solid #FCBF49 5px;
+	background: #003049;
+}
+
+button.btn.btn-primary.btn-lg {
+	background-color: #540B0E;
+	border: solid  #FCBF49;
+	color:  white;
+	border-radius: 20px;
+}
+
+button.btn.btn-primary.btn-lg:hover {
+	background: #003049;
+}
+
+div.recipe-card {
+	background: rgb(0,0,0);
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, #003049 46%);
+	padding: 30px;
+	border-radius: 20px;
+}
+
+img.recipe-img {
+	border: 2px #FCBF49 solid;
+}
+
+h3.recipe-title {
+	font-family: 'Roboto Mono', monospace;
+}
+
+p.date-posted {
+	font-size: 10pt;
+}
+
+p {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 13pt;
+}
+
+div.about-section {
+	background: rgb(0,0,0);
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, #540B0E 46%);
+	padding: 30px;
+	border-radius: 20px;
+}
+
+h2 {
+	font-family: 'Roboto Mono', monospace;
+}
+
+img.about-img {
+	float: left;
+	width: 300px;
+	margin: 10px;
+}
+
+div.chef-info {
+	background: rgb(0,0,0);
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, #CC9139 46%);
+	padding: 30px;
+	border-radius: 20px;
+}
+
+img.me {
+	float: right;
+	width: 300px;
+	margin: 10px;
+}
