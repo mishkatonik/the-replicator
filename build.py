@@ -8,11 +8,11 @@ content = open('content/index.html').read()
 index_html = top + content + bottom
 open('docs/index.html', 'w+').write(index_html)
 
-# blog
-content = open('content/blog.html').read()
+# about
+content = open('content/about.html').read()
 
-blog_html = top + content + bottom
-open('docs/blog.html', 'w+').write(blog_html)
+about_html = top + content + bottom
+open('docs/about.html', 'w+').write(about_html)
 
 # meet-the-chef
 content = open('content/meet-the-chef.html').read()
