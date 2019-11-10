@@ -2,55 +2,41 @@ pages = [
 	{
 	'filename': 'content/index.html',
 	'output': 'docs/index.html',
-	'title': 'The Replicator'
+	'title': 'What\'s Cookin',
 	},
 	{
 	'filename': 'content/about.html',
 	'output': 'docs/about.html',
-	'title': 'About - The Food of Star Trek'
+	'title': 'About - The Food of Star Trek',
 	},
 	{
 	'filename': 'content/meet-the-chef.html',
 	'output': 'docs/meet-the-chef.html',
-	'title': 'Meet the Chef'
+	'title': 'Meet the Chef',
 	}
 ]
 
+
+# GET TEMPLATE FUNCTION
+def get_template():
+	base_template = open('templates/base.html').read()
+	return base_template
+
+# COMPILE DOCS FUNCTION
+def compile(i=0):
+	page = pages[i]
+	for page in pages:
+		content = open(pages[i]['filename']).read()
+		base_template = open('templates/base.html').read()
+		fullpage = base_template.replace('{{content}}', content) + base_template.replace('{{title}}', pages[i]['title'])
+		open(pages[i]['output'], "w+").write(fullpage)
+		page = pages[i+1]
+
 def main():
-	# templates
-	top = open('templates/top.html').read()
-	bottom = open('templates/bottom.html').read()
+	get_template()
+	compile()
 
-	# index
-	content = open('content/index.html').read()
-
-	index_html = top + content + bottom
-	open('docs/index.html', 'w+').write(index_html)
-
-	# about
-	content = open('content/about.html').read()
-
-	about_html = top + content + bottom
-	open('docs/about.html', 'w+').write(about_html)
-
-	# meet-the-chef
-	content = open('content/meet-the-chef.html').read()
-
-	meet_the_chef_html = top + content + bottom
-	open('docs/meet-the-chef.html', 'w+').write(meet_the_chef_html)
-
-
-
-
-for page in pages:
-	content = open(page['filename']).read()
-	fullpage = content + basetemplate
-	open(page['output'], "w+").write(fullpage)
-
-
-
-
-
+# main()
 
 if __name__ == "__main__":
 	main()
