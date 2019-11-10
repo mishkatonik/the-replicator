@@ -7,7 +7,7 @@ pages = [
 	{
 	'filename': 'content/about.html',
 	'output': 'docs/about.html',
-	'title': 'About - The Food of Star Trek',
+	'title': '<h2>ABOUT The Food of <em>Star Trek</em></h2>',
 	},
 	{
 	'filename': 'content/meet-the-chef.html',
@@ -16,27 +16,32 @@ pages = [
 	}
 ]
 
-
-# GET TEMPLATE FUNCTION
+# Read in base template file
 def get_template():
-	base_template = open('templates/base.html').read()
+	for page in pages:
+		base_template = open('templates/base.html').read()
 	return base_template
 
-# COMPILE DOCS FUNCTION
-def compile(i=0):
-	page = pages[i]
+# Read in content files
+def get_content():
 	for page in pages:
-		content = open(pages[i]['filename']).read()
-		base_template = open('templates/base.html').read()
-		fullpage = base_template.replace('{{content}}', content) + base_template.replace('{{title}}', pages[i]['title'])
-		open(pages[i]['output'], "w+").write(fullpage)
-		page = pages[i+1]
+		content = open(page['filename']).read()
+	return content
 
+# Compile the fullpage, which represents the fully rendered html webpage
+def compile():
+	for page in pages:
+		fullpage = base_template.replace('{{content}}', content) + base_template.replace('{{title}}', page['title'])
+		open(page['output'], "w+").write(fullpage)
+
+
+# Put em all together
 def main():
 	get_template()
+	get_content()
 	compile()
 
-# main()
+main()
 
 if __name__ == "__main__":
 	main()
