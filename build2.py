@@ -1,3 +1,21 @@
+pages = [
+	{
+	'filename': 'content/index.html',
+	'output': 'docs/index.html',
+	'title': 'The Replicator'
+	},
+	{
+	'filename': 'content/about.html',
+	'output': 'docs/about.html',
+	'title': 'About - The Food of Star Trek'
+	},
+	{
+	'filename': 'content/meet-the-chef.html',
+	'output': 'docs/meet-the-chef.html',
+	'title': 'Meet the Chef'
+	}
+]
+
 def main():
 	# templates
 	top = open('templates/top.html').read()
@@ -21,23 +39,8 @@ def main():
 	meet_the_chef_html = top + content + bottom
 	open('docs/meet-the-chef.html', 'w+').write(meet_the_chef_html)
 
-pages = [
-	{
-	'filename': 'content/index.html',
-	'output': 'docs/index.html',
-	'title': 'The Replicator'
-	},
-	{
-	'filename': 'content/about.html',
-	'output': 'docs/about.html',
-	'title': 'About - The Food of Star Trek'
-	},
-	{
-	'filename': 'content/meet-the-chef.html',
-	'output': 'docs/meet-the-chef.html',
-	'title': 'Meet the Chef'
-	}
-]
+
+
 
 for page in pages:
 	content = open(page['filename']).read()
