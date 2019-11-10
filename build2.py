@@ -39,6 +39,10 @@ pages = [
 	}
 ]
 
+for page in pages:
+	content = open(page['filename']).read()
+	fullpage = content + basetemplate
+	open(page['output'], "w+").write(fullpage)
 
 
 
