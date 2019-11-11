@@ -53,6 +53,10 @@ button.btn.btn-primary.btn-lg:hover {
 	background: #003049;
 }
 
+button.active {
+	background: #003049;
+}
+
 div.recipe-card {
 	background: rgb(0,0,0);
 	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, #003049 46%);
