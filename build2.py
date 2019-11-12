@@ -16,9 +16,6 @@ pages = [
 	}
 ]
 
-# So when I put the return as indented and part of the for loop, it only gives the first page.
-# When its not indented, it only returns the last page. Why?
-
 
 # Read in base template file
 def get_template():
@@ -26,24 +23,21 @@ def get_template():
 	return base_template
 
 # Read in content files
-def get_content():
-	for page in pages:
-		content = open(page['filename']).read()
-		return content
+def get_content(page):
+	content = open(page['filename']).read()
+	return content
 
 # Compile the fullpage, which represents the fully rendered html webpage
-def compile(base_template, content):
-	for page in pages:
-		fullpage = base_template.replace('{{content}}', content).replace('{{title}}', page['title'])
-		# open(page['output'], "w+").write(fullpage)
-		return fullpage
+def compile(page, base_template, content):
+	fullpage = base_template.replace('{{content}}', content).replace('{{title}}', page['title'])
+	return fullpage
 
 # Put em all together
 def main():
 	for page in pages:
 		base_template = get_template()
-		content = get_content()
-		fullpage = compile(base_template, content)
+		content = get_content(page)
+		fullpage = compile(page, base_template, content)
 		open(page['output'], "w+").write(fullpage)
 
 
@@ -54,5 +48,5 @@ main()
 	# get_template()
 	# get_content()
 
-if __name__ == "__main__":
-	main()
+#if __name__ == "__main__":
+#	main()
