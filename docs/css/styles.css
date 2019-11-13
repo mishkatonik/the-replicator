@@ -35,8 +35,8 @@ img.logo {
 
 h6.tagline {
 	font-family: 'Major Mono Display', monospace;
-	font-size: 12pt;
-	padding: 10px;
+	font-size: 11pt;
+	padding: 5px;
 	margin: 5px;
 	border: solid #FCBF49 5px;
 	background: #003049;
@@ -51,6 +51,11 @@ button.btn.btn-primary.btn-lg {
 
 button.btn.btn-primary.btn-lg:hover {
 	background: #003049;
+}
+
+button.active {
+	background: #003049;
+	border: solid #540B0E;
 }
 
 div.recipe-card {

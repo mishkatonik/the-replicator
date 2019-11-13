@@ -1,5 +1,4 @@
-# solo
-A Star Trek-themed recipe blog
+# The Replicator: 
+## A Star Trek-themed recipe blog
 
-
-This site is created using a static site generator script in bash and Python. In order to recreate the full site, please run `build.sh` or `build.py` in terminal. The compiled HTML files can be found in the `docs` directory.
+This site is created using a Python-based static site generator script. In order to recreate the full site, please run `build.py` in your terminal. The compiled HTML files can be found in the `docs` directory.
