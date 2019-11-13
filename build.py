@@ -3,19 +3,16 @@ pages = [
 	'filename': 'content/index.html',
 	'output': 'docs/index.html',
 	'title': 'The Replicator',
-	# 'is_active': '{{recipes_active}}',
 	},
 	{
 	'filename': 'content/about.html',
 	'output': 'docs/about.html',
 	'title': 'About - The Food of Star Trek',
-	# 'is_active': '{{about_active}}',
 	},
 	{
 	'filename': 'content/meet-the-chef.html',
 	'output': 'docs/meet-the-chef.html',
 	'title': 'Meet the Chef',
-	# 'is_active': '{{meet_the_chef_active}}',
 	}
 ]
 
@@ -36,7 +33,6 @@ def compile(page, base_template, content):
 	return fullpage
 
 # Indicate which page is active and set the corresponding button to active class
-	# there's gotta be a better way to do this...
 def active_buttons(page, fullpage):
 	if page['output'] == 'docs/index.html': 
 		actvive_page = fullpage.replace('{{recipes_active}}', 'active')
