@@ -1,3 +1,6 @@
+from jinja2 import Environment, FileSystemLoader
+import glob
+
 pages = [
 	{
 	'filename': 'content/index.html',
@@ -15,6 +18,8 @@ pages = [
 	'title': 'Meet the Chef',
 	}
 ]
+
+
 
 
 # Read in base template file
