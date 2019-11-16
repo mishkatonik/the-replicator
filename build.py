@@ -1,26 +1,37 @@
-from jinja2 import Environment, FileSystemLoader
+import jinja2
 import glob
+import os
 
-pages = [
-	{
-	'filename': 'content/index.html',
-	'output': 'docs/index.html',
-	'title': 'The Replicator',
-	},
-	{
-	'filename': 'content/about.html',
-	'output': 'docs/about.html',
-	'title': 'About - The Food of Star Trek',
-	},
-	{
-	'filename': 'content/meet-the-chef.html',
-	'output': 'docs/meet-the-chef.html',
-	'title': 'Meet the Chef',
-	}
-]
+# pages = [
+# 	{
+# 	'filename': 'content/index.html',
+# 	'output': 'docs/index.html',
+# 	'title': 'The Replicator',
+# 	},
+# 	{
+# 	'filename': 'content/about.html',
+# 	'output': 'docs/about.html',
+# 	'title': 'About - The Food of Star Trek',
+# 	},
+# 	{
+# 	'filename': 'content/meet-the-chef.html',
+# 	'output': 'docs/meet-the-chef.html',
+# 	'title': 'Meet the Chef',
+# 	}
+# ]
+all_content_files = glob.glob("content/*.html")
 
+pages = []
 
-
+def build_pages_dict():
+	for file in all_content_files:
+		file_name = os.path.basename(file)
+		page_title, extension = os.path.splitext(file_name)
+		pages.append({
+			'input' : ('content/' + file_name), 
+			'output' : ('docs/' + file_name),
+			'title' : page_title,
+		})
 
 # Read in base template file
 def get_template():

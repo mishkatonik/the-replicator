@@ -1,0 +1,11 @@
+import glob
+import os
+import jinja2
+
+index_content = open("content/index.html").read()
+base_template = open("templates/base.html").read()
+template = jinja2.Template(base_template)
+template.render(
+	title="Homepage",
+	content=index_content,
+)
