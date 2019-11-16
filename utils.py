@@ -35,13 +35,13 @@ def compile(page, base_template, content):
 # Indicate which page is active and set the corresponding button to active class
 # after creating manage.py, this no longer populates active correctly...
 def active_buttons(page, fullpage):
-	if page['output'] == 'docs/index.html': 
-		actvive_page = fullpage.replace('{{recipes_active}}', 'active')
-	elif page['output'] == 'docs/about.html': 
-		actvive_page = fullpage.replace('{{about_active}}', 'active')
-	elif page['output'] == 'docs/meet-the-chef.html': 
-		actvive_page = fullpage.replace('{{meet_the_chef_active}}', 'active')
-	return actvive_page
+	if page['output'] == 'docs/The Replicator.html': 
+		active_page = fullpage.replace('{{recipes_active}}', 'active')
+	elif page['output'] == 'docs/About - The Food of Star Trek.html': 
+		active_page = fullpage.replace('{{about_active}}', 'active')
+	elif page['output'] == 'docs/Meet the Chef.html': 
+		active_page = fullpage.replace('{{meet_the_chef_active}}', 'active')
+	return active_page
 
 
 # Put em all together
