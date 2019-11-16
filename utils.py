@@ -2,23 +2,6 @@ import jinja2
 import glob
 import os
 
-# pages = [
-# 	{
-# 	'filename': 'content/index.html',
-# 	'output': 'docs/index.html',
-# 	'title': 'The Replicator',
-# 	},
-# 	{
-# 	'filename': 'content/about.html',
-# 	'output': 'docs/about.html',
-# 	'title': 'About - The Food of Star Trek',
-# 	},
-# 	{
-# 	'filename': 'content/meet-the-chef.html',
-# 	'output': 'docs/meet-the-chef.html',
-# 	'title': 'Meet the Chef',
-# 	}
-# ]
 all_content_files = glob.glob("content/*.html")
 
 pages = []
@@ -40,15 +23,17 @@ def get_template():
 
 # Read in content files
 def get_content(page):
-	content = open(page['filename']).read()
+	content = open(page['input']).read()
 	return content
 
 # Compile the fullpage, which represents the fully rendered html webpage
 def compile(page, base_template, content):
-	fullpage = base_template.replace('{{content}}', content).replace('{{title}}', page['title'])
+	jinja_template = jinja2.Template(base_template)
+	fullpage = jinja_template.render(title=page['title'], content=content)
 	return fullpage
 
 # Indicate which page is active and set the corresponding button to active class
+# after creating manage.py, this no longer populates active correctly...
 def active_buttons(page, fullpage):
 	if page['output'] == 'docs/index.html': 
 		actvive_page = fullpage.replace('{{recipes_active}}', 'active')
@@ -61,12 +46,10 @@ def active_buttons(page, fullpage):
 
 # Put em all together
 def main():
+	build_pages_dict()
 	for page in pages:
 		base_template = get_template()
 		content = get_content(page)
 		fullpage = compile(page, base_template, content)
 		active_page = active_buttons(page, fullpage)
 		open(page['output'], "w+").write(active_page)
-
-if __name__ == "__main__":
-	main()
