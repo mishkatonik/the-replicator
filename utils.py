@@ -7,13 +7,15 @@ all_content_files = glob.glob("content/*.html")
 pages = []
 
 def build_pages_dict():
-	for file in all_content_files:
-		file_name = os.path.basename(file)
+	for content_file in all_content_files:
+		file_name = os.path.basename(content_file)
 		page_title, extension = os.path.splitext(file_name)
 		pages.append({
 			'input' : ('content/' + file_name), 
 			'output' : ('docs/' + file_name),
+			'basename' : file_name,
 			'title' : page_title,
+			'selected' : False,
 		})
 
 # Read in base template file
@@ -29,19 +31,31 @@ def get_content(page):
 # Compile the fullpage, which represents the fully rendered html webpage
 def compile(page, base_template, content):
 	jinja_template = jinja2.Template(base_template)
-	fullpage = jinja_template.render(title=page['title'], content=content)
+	for page in pages:
+		page['selected'] = False
+	page['selected'] = True
+	fullpage = jinja_template.render(pages=pages, title=page['title'], content=content)
 	return fullpage
 
 # Indicate which page is active and set the corresponding button to active class
 # after creating manage.py, this no longer populates active correctly...
-def active_buttons(page, fullpage):
-	if page['output'] == 'docs/The Replicator.html': 
-		active_page = fullpage.replace('{{recipes_active}}', 'active')
-	elif page['output'] == 'docs/About - The Food of Star Trek.html': 
-		active_page = fullpage.replace('{{about_active}}', 'active')
-	elif page['output'] == 'docs/Meet the Chef.html': 
-		active_page = fullpage.replace('{{meet_the_chef_active}}', 'active')
-	return active_page
+	# example of link loop to make active
+		# {% for link in links %}
+		# 	{% if link == selected_link %} 
+		# 		'make active code...'
+		# 	{% endif %}
+		# {% endfor %}
+
+		# selected_link = www.microsoft.com
+
+# def active_buttons(page, fullpage):
+# 	if page['output'] == 'docs/The Replicator.html': 
+# 		active_page = fullpage.replace('{{recipes_active}}', 'active')
+# 	elif page['output'] == 'docs/About - The Food of Star Trek.html': 
+# 		active_page = fullpage.replace('{{about_active}}', 'active')
+# 	elif page['output'] == 'docs/Meet the Chef.html': 
+# 		active_page = fullpage.replace('{{meet_the_chef_active}}', 'active')
+# 	return active_page
 
 
 # Put em all together
@@ -51,5 +65,5 @@ def main():
 		base_template = get_template()
 		content = get_content(page)
 		fullpage = compile(page, base_template, content)
-		active_page = active_buttons(page, fullpage)
-		open(page['output'], "w+").write(active_page)
+		# active_page = active_buttons(page, fullpage)
+		open(page['output'], "w+").write(fullpage)		
