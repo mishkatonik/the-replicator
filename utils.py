@@ -52,6 +52,7 @@ def compile(page, base_template, content):
 def main():
 	build_pages_dict()
 	for page in pages:
+		page['selected'] = False
 		base_template = get_template()
 		content = get_content(page)
 		fullpage = compile(page, base_template, content)
