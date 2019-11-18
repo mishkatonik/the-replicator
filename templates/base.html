@@ -38,9 +38,9 @@
                                     <div class="container">                     
                                         {% for page in pages %}
                                             {% if page.selected %}
-                                                <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg active"> {{ page.title }} </button></a>
+                                                <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg active"> {{ page.title }} </button></a><br/><br/>
                                             {% else %}
-                                                <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg"> {{ page.title }} </button></a>
+                                                <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg"> {{ page.title }} </button></a><br/><br/>
                                             {% endif %}
                                         {% endfor %}
                                        <!--  <a href="./index.html"><button type="button" class="btn btn-primary btn-lg {{recipes_active}}">Recipes</button></a>

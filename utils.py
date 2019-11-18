@@ -31,8 +31,8 @@ def get_content(page):
 # Compile the fullpage, which represents the fully rendered html webpage
 def compile(page, base_template, content):
 	jinja_template = jinja2.Template(base_template)
-	for page in pages:
-		page['selected'] = False
+	# for page in pages:
+	# 	page['selected'] = False
 	page['selected'] = True
 	fullpage = jinja_template.render(pages=pages, title=page['title'], content=content)
 	return fullpage
@@ -47,16 +47,6 @@ def compile(page, base_template, content):
 		# {% endfor %}
 
 		# selected_link = www.microsoft.com
-
-# def active_buttons(page, fullpage):
-# 	if page['output'] == 'docs/The Replicator.html': 
-# 		active_page = fullpage.replace('{{recipes_active}}', 'active')
-# 	elif page['output'] == 'docs/About - The Food of Star Trek.html': 
-# 		active_page = fullpage.replace('{{about_active}}', 'active')
-# 	elif page['output'] == 'docs/Meet the Chef.html': 
-# 		active_page = fullpage.replace('{{meet_the_chef_active}}', 'active')
-# 	return active_page
-
 
 # Put em all together
 def main():
