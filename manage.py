@@ -2,9 +2,7 @@ from utils import main, new_content
 from pprint import pprint
 import sys
 
-# print("This is argv:", sys.argv)
 
-# print(command)
 try:
     command = sys.argv[1]
     if command == "build":
@@ -22,5 +20,3 @@ try:
         print("     | Create new page: python manage.py new")
 except IndexError:
     pprint("Oops, no argument found! Try 'build' to generate site or 'new' to make a new content file.", width=50)
-
-

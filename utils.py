@@ -6,6 +6,7 @@ all_content_files = glob.glob("content/*.html")
 
 pages = []
 
+# Detect content files and store them as dict
 def build_pages_dict():
 	for content_file in all_content_files:
 		file_name = os.path.basename(content_file)
@@ -17,6 +18,7 @@ def build_pages_dict():
 			'title' : page_title,
 		})
 
+# To be run in terminal to generate a new file with placeholder content
 def new_content():
 	new_file_name = input("Enter a name and ext for this file: ")
 	new_file = open('content/' + new_file_name, 'w+')
