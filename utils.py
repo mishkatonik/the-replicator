@@ -57,4 +57,4 @@ def main():
 		content = get_content(page)
 		fullpage = compile(page, base_template, content)
 		# active_page = active_buttons(page, fullpage)
-		open(page['output'], "w+").write(fullpage)		
+		open(page['output'], "w+").write(fullpage)
