@@ -15,8 +15,17 @@ def build_pages_dict():
 			'output' : ('docs/' + file_name),
 			'basename' : file_name,
 			'title' : page_title,
-			'selected' : False,
 		})
+
+def new_content():
+	new_file_name = input("Enter a name and ext for this file: ")
+	new_file = open('content/' + new_file_name, 'w+')
+	new_file.write('''
+		<div>
+			<h2>New Section<h2>
+			<p>New stuff goes here!</p>
+		</div>
+		''')
 
 # Read in base template file
 def get_template():
@@ -31,30 +40,14 @@ def get_content(page):
 # Compile the fullpage, which represents the fully rendered html webpage
 def compile(page, base_template, content):
 	jinja_template = jinja2.Template(base_template)
-	# for page in pages:
-	# 	page['selected'] = False
-	page['selected'] = True
 	fullpage = jinja_template.render(pages=pages, title=page['title'], content=content)
 	return fullpage
-
-# Indicate which page is active and set the corresponding button to active class
-# after creating manage.py, this no longer populates active correctly...
-	# example of link loop to make active
-		# {% for link in links %}
-		# 	{% if link == selected_link %} 
-		# 		'make active code...'
-		# 	{% endif %}
-		# {% endfor %}
-
-		# selected_link = www.microsoft.com
 
 # Put em all together
 def main():
 	build_pages_dict()
 	for page in pages:
-		page['selected'] = False
 		base_template = get_template()
 		content = get_content(page)
 		fullpage = compile(page, base_template, content)
-		# active_page = active_buttons(page, fullpage)
 		open(page['output'], "w+").write(fullpage)
