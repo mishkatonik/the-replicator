@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
     <head>
-        <title>{{title}}</title>
+        <title>anotherfiletest</title>
         <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/darkly/bootstrap.min.css" rel="stylesheet" integrity="sha384-w+8Gqjk9Cuo6XH9HKHG5t5I1VR4YBNdPt/29vwgfZR485eoEJZ8rJRbm3TR32P6k" crossorigin="anonymous">
 
         <link href="https://fonts.googleapis.com/css?family=Turret+Road|Major+Mono+Display|Lato|Montserrat|Roboto+Mono&display=swap" rel="stylesheet">
@@ -23,7 +23,12 @@
                     </div>
 
 <!----------------- CONTENT STARTS HERE ----------------->
-    {{content}}
+    
+		<div>
+			<h2>New Section<h2>
+			<p>New stuff goes here!</p>
+		</div>
+		
 <!------------------ CONTENT ENDS HERE ------------------>
 
                 </div>
@@ -36,18 +41,28 @@
                                 <h6 class="tagline"><strong><em>Serving up eats from around the multiverse!</em></strong></h6>
                                 <br/>
                                     <div class="container">                     
-                                        {% for page in pages %}
-                                            {% if page.title == title %}
-                                                <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg active"> {{ page.title }} </button></a><br/><br/>
-                                            {% else %}
-                                                <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg"> {{ page.title }} </button></a><br/><br/>
-                                            {% endif %}
-                                        {% endfor %}
-                                       <!--  <a href="./index.html"><button type="button" class="btn btn-primary btn-lg {{recipes_active}}">Recipes</button></a>
+                                        
+                                            
+                                                <a href="The Replicator.html"><button type="button" class="btn btn-primary btn-lg"> The Replicator </button></a><br/><br/>
+                                            
+                                        
+                                            
+                                                <a href="About.html"><button type="button" class="btn btn-primary btn-lg"> About </button></a><br/><br/>
+                                            
+                                        
+                                            
+                                                <a href="Meet the Chef.html"><button type="button" class="btn btn-primary btn-lg"> Meet the Chef </button></a><br/><br/>
+                                            
+                                        
+                                            
+                                                <a href="anotherfiletest.html"><button type="button" class="btn btn-primary btn-lg active"> anotherfiletest </button></a><br/><br/>
+                                            
+                                        
+                                       <!--  <a href="./index.html"><button type="button" class="btn btn-primary btn-lg ">Recipes</button></a>
                                         <br/><br/>
-                                        <a href="./about.html"><button type="button" class="btn btn-primary btn-lg {{about_active}}">About</button></a>
+                                        <a href="./about.html"><button type="button" class="btn btn-primary btn-lg ">About</button></a>
                                         <br/><br/>
-                                        <a href="./meet-the-chef.html"><button type="button" class="btn btn-primary btn-lg {{meet_the_chef_active}}">Meet the Chef</button></a> -->
+                                        <a href="./meet-the-chef.html"><button type="button" class="btn btn-primary btn-lg ">Meet the Chef</button></a> -->
                                     
                                     
                                     </div>
