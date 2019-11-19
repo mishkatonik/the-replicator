@@ -37,7 +37,7 @@
                                 <br/>
                                     <div class="container">                     
                                         {% for page in pages %}
-                                            {% if page.selected %}
+                                            {% if page.title == title %}
                                                 <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg active"> {{ page.title }} </button></a><br/><br/>
                                             {% else %}
                                                 <a href="{{ page.basename }}"><button type="button" class="btn btn-primary btn-lg"> {{ page.title }} </button></a><br/><br/>
